@@ -2,11 +2,7 @@
 const btn = document.querySelector("button");
 const form = document.querySelector(".form-group");
 const tbody = document.getElementById("book-list");
-btn.addEventListener("click", () =>{
-	alert(document.getElementById("title").value);
-	alert(document.getElementById("author").value);
-	alert(document.getElementById("isbn").value);
-})
+
 
 function book_details(book){
 	const tr = document.createElement("tr");
@@ -17,7 +13,11 @@ function book_details(book){
 	}
 	const actions = document.createElement("td");
     const deleteButton = document.createElement("button");
+	deleteButton.innerText = "delete";
 	deleteButton.addEventListener("click", deleteButtonFunction);
+	actions.appendChild(deleteButton);
+	tr.appendChild(actions);
+    tbody.appendChild(tr);
 }
 
 function deleteButtonFunction(e){
